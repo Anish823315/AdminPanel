@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './Sidebar.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, subtitle, children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { admin } = useAuth();
 
@@ -27,14 +27,20 @@ const Layout = ({ title, children }) => {
 
       <div className="main-area">
         <header className="topbar">
-          <button
-            className="menu-toggle"
-            onClick={() => setSidebarOpen(true)}
-          >
-            ☰
-          </button>
+          <div className="topbar-left">
+            <button
+              className="menu-toggle"
+              onClick={() => setSidebarOpen(true)}
+            >
+              ☰
+            </button>
 
-          <h2>{title}</h2>
+            <div className="topbar-heading">
+              <span className="eyebrow">Admin Panel</span>
+              <h2>{title}</h2>
+              {subtitle && <p className="topbar-subtitle">{subtitle}</p>}
+            </div>
+          </div>
 
           <div className="admin-name">
             {admin?.name || 'Administrator'}

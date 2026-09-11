@@ -44,7 +44,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Layout title="Dashboard">
+    <Layout title="Dashboard" subtitle="Overview of your platform's performance">
       {loading && <div className="loading-state">Loading dashboard...</div>}
       {error && <div className="error-text">{error}</div>}
 

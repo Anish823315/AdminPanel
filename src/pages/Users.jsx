@@ -79,7 +79,7 @@ const Users = () => {
   };
 
   return (
-    <Layout title="User Management">
+    <Layout title="User Management" subtitle="Add, edit, and manage system users">
       <div className="panel">
         <div className="panel-header">
           <div className="toolbar">
@@ -124,11 +124,11 @@ const Users = () => {
                 <tbody>
                   {users.map((u) => (
                     <tr key={u._id}>
-                      <td>{u.name}</td>
-                      <td>{u.email}</td>
-                      <td>{u.phone || '-'}</td>
-                      <td style={{ textTransform: 'capitalize' }}>{u.role}</td>
-                      <td>
+                      <td data-label="Name">{u.name}</td>
+                      <td data-label="Email">{u.email}</td>
+                      <td data-label="Phone">{u.phone || '-'}</td>
+                      <td data-label="Role" style={{ textTransform: 'capitalize' }}>{u.role}</td>
+                      <td data-label="Status">
                         <button
                           className={`badge badge-${u.status}`}
                           style={{ border: 'none', cursor: 'pointer' }}
@@ -138,7 +138,7 @@ const Users = () => {
                           {u.status}
                         </button>
                       </td>
-                      <td>
+                      <td data-label="Actions">
                         <div className="row-actions">
                           <button className="icon-btn" title="Edit" onClick={() => { setEditingUser(u); setShowForm(true); }}>✏️</button>
                           <button className="icon-btn danger" title="Delete" onClick={() => setDeleteTarget(u)}>🗑️</button>

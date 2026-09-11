@@ -49,7 +49,7 @@ const Orders = () => {
   };
 
   return (
-    <Layout title="Order Management">
+    <Layout title="Order Management" subtitle="Track and update customer orders">
       <div className="panel">
         <div className="panel-header">
           <div className="toolbar">
@@ -90,14 +90,14 @@ const Orders = () => {
                 <tbody>
                   {orders.map((o) => (
                     <tr key={o._id}>
-                      <td>{o.orderNumber}</td>
-                      <td>{o.customerName}</td>
-                      <td>{o.product}</td>
-                      <td>${o.amount.toFixed(2)}</td>
-                      <td>
+                      <td data-label="Order #">{o.orderNumber}</td>
+                      <td data-label="Customer">{o.customerName}</td>
+                      <td data-label="Product">{o.product}</td>
+                      <td data-label="Amount">${o.amount.toFixed(2)}</td>
+                      <td data-label="Status">
                         <span className={`badge badge-${o.status.toLowerCase()}`}>{o.status}</span>
                       </td>
-                      <td>
+                      <td data-label="Update Status">
                         <select
                           className="status-select"
                           value={o.status}
